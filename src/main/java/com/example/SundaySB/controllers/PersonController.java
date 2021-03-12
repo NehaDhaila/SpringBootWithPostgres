@@ -23,15 +23,18 @@ public class PersonController {
     public List<PersonEntity> getAllPersons(){
         return personService.getAllPersons();
     }
+
     @GetMapping("/getPerson/{id}")
     public Optional<PersonEntity> getPerson(@PathVariable Long id){
         return personService.getPerson(id);
     }
+
     @DeleteMapping("/deletePerson/{id}")
     public String deletePerson(@PathVariable Long id){
         personService.deletePerson(id);
         return "successfully deleted.";
     }
+
     @PutMapping("/updatePerson/{id}")
     public void updatePerson(@RequestBody PersonEntity entity, @PathVariable Long id){
         personService.updatePerson(entity,id);
